@@ -2,12 +2,13 @@
 const express = require("express");
 // import mongoose
 const mongoose = require("mongoose");
-
+// import cors
+const cors = require("cors");
+// create instance
 const app = express();
-
+app.use(express.json());
+app.use(cors());
 port = 4000;
-
-// let todos = [];
 
 // graph ql
 
@@ -31,13 +32,8 @@ const todoSchema = new mongoose.Schema({
   description: String,
 });
 
-// creating Model
-
-const todoModel = mongoose.model("Todo", todoSchema);
-
 // creating a New Todo model
-
-app.use(express.json());
+const todoModel = mongoose.model("Todo", todoSchema);
 
 // post method
 
